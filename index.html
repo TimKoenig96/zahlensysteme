@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/zahlensysteme/style.css" />
+		<title>Zahlensysteme Dargestellt</title>
+		<script src="/zahlensysteme/theme.js" defer></script>
+	</head>
+	<body>
+
+		<div id="container">
+			<p id="theme_switcher">Light theme nutzen?</p>
+	
+			<div class="section">
+				<h1>Zahlensysteme erklärt</h1>
+				<hr />
+				<h3>Binär / Dualzahlen / Base-2</h3>
+				<p>
+					Binär, Dualzahlen und Base-2 sind dasselbe. In Binär kann jede Ziffer nur zwei
+					Werte enthalten: 0 oder 1. Das "Bi" von Binär kommt im Übrigen aus dem Lateinischen
+					und steht für zwei!<br /><br />
+
+					Normale Computer, also keine experimentellen Quantum Computer, verarbeiten
+					und speichern Daten ausschließlich in Binär.<br /><br />
+
+					Programmiersprachen wie JavaScript oder Python werden vom Compiler in
+					Maschinencode übersetzt, welcher letztendlich auch nur binär ist.
+				</p><br /><br /><br />
+
+				<h3>Dezimalzahlen / Base-10</h3>
+				<p>
+					Das Wort "Deci" kommt aus dem Lateinischen "Decimus", was ein zehntel bedeutet.
+					Ein Dezimeter ist ein zehtel von einem Meter: 10cm.<br /><br />
+
+					Dezimalzahlen bestehen aus zehn Ziffern: 0 bis 9 - Daher "Dezi".<br /><br />
+
+					Wir nutzen diese Zahlen im Alltag: Zählen, Mathematik, Kommastellen, Maße, und so weiter.
+				</p><br /><br /><br />
+
+				<h3>Hexadezimalzahlen / Base-16</h3>
+				<p>
+					Hexa (Lateinisch) und Hex (Griechisch) bedeuten sechs. Dies kann man eventuell besser
+					merken, wenn man an ein Hexagon oder ein Stoppschild denkt. Das "Dezi" ist hier ebenfalls
+					vertreten. Hexa + Dezi = 6 + 10 = 16.<br /><br />
+
+					Um auf die 16 zu kommen, nehmen wir zuerst die 0 bis 9 Dezimalzahlen. Am Ende fügen wir
+					lediglich A bis F hinzu, womit man bei 16 Zeichen angekommen ist. Warum genau 16 Zeichen
+					benötigt werden, erkläre ich in den Hexadezimalen Umrechnungen.<br /><br />
+
+					Hexadezimalzahlen werden hauptsächlich genutzt, um Binärzahlen lesbarer darzustellen.
+					Ein weiterer Anwendungsfall ist für die Anzeige von Speicheradressen, beispielsweise
+					im RAM. Dies ist besonders bei der "Low-Level"-Programmierung üblich.
+				</p>
+			</div>
+
+			<div class="section">
+				<h1>Veranschaulichung</h1>
+				<hr />
+				<input type="range" id="input_decimal" min="0" max="1023" />
+			</div>
+		</div>
+
+		<script src="/zahlensysteme/main.js"></script>
+	</body>
+</html>

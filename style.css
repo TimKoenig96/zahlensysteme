@@ -1,0 +1,68 @@
+/* #region | Root selectors */
+:root {
+	--elev_0: rgb(210, 210, 230);
+	--elev_1: rgba(0, 0, 0, 0.1);
+	--text_c_prim: rgb(0, 0, 0);
+	--text_c_sec: rgb(71, 71, 71);
+}
+
+:root[data-theme="dark"] {
+	--elev_0: rgb(18, 18, 28);
+	--elev_1: rgba(255, 255, 255, 0.1);
+	--text_c_prim: rgb(204, 204, 204);
+	--text_c_sec: rgb(133, 133, 133);
+}
+/* #endregion */
+
+
+
+/* #region | Default elements */
+* {
+	color: var(--text_c_prim);
+	font-family: sans-serif;
+}
+
+body {
+	width: 100vw;
+	margin: 0;
+	background-color: var(--elev_0);
+	overflow-x: hidden;
+}
+
+h1 { text-align: center; }
+hr { border: 1px solid var(--text_c_sec); }
+/* #endregion */
+
+
+
+/* #region | Classes */
+.section {
+	background-color: var(--elev_1);
+	padding: 8px;
+	margin-bottom: 20px;
+	border-radius: 8px;
+}
+/* #endregion */
+
+
+
+/* #region | One-off elements */
+#container {
+	width: 600px;
+	max-width: 100%;
+	height: 100%;
+	margin: 8px auto 50px auto;
+}
+
+#theme_switcher {
+	cursor: pointer;
+	text-decoration: underline dotted var(--text_c_sec);
+	text-align: center;
+	margin: 0;
+	padding: 8px;
+}
+
+#input_decimal {
+	width: 100%;
+}
+/* #endregion */
