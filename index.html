@@ -42,7 +42,8 @@
 				<p>
 					Hexa (Lateinisch) und Hex (Griechisch) bedeuten sechs. Dies kann man eventuell besser
 					merken, wenn man an ein Hexagon oder ein Stoppschild denkt. Das "Dezi" ist hier ebenfalls
-					vertreten. Hexa + Dezi = 6 + 10 = 16.<br /><br />
+					vertreten.<br />
+					Hexa + Dezi = 6 + 10 = 16.<br /><br />
 
 					Um auf die 16 zu kommen, nehmen wir zuerst die 0 bis 9 Dezimalzahlen. Am Ende fügen wir
 					lediglich A bis F hinzu, womit man bei 16 Zeichen angekommen ist. Warum genau 16 Zeichen
@@ -57,7 +58,65 @@
 			<div class="section">
 				<h1>Veranschaulichung</h1>
 				<hr />
-				<input type="range" id="input_decimal" min="0" max="1023" />
+				<h3>Input in Dezimal</h3>
+				<div id="illust_inputs">
+					<input type="number" id="decimal_input_number" min="0" max="4095" value="0" />
+					<input type="range" id="decimal_input_slider" min="0" max="4095" value="0" />
+					<input type="checkbox" id="simple_view" checked />
+					<label for="simple_view">Simple<br />Darstellung</label>
+				</div><br /><br /><br />
+
+				<h3>Einfacher Output als Tabelle</h3>
+				<table id="simple_output_table">
+					<tr>
+						<th>Stellenwert</th>
+						<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">2048</span><span class="complicated_view show_simple">2<sup>11</sup></span></th>
+						<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">1024</span><span class="complicated_view show_simple">2<sup>10</sup></span></th>
+						<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">512</span><span class="complicated_view show_simple">2<sup>9</sup></span></th>
+						<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">256</span><span class="complicated_view show_simple">2<sup>8</sup></span></th>
+						<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">128</span><span class="complicated_view show_simple">2<sup>7</sup></span></th>
+						<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">64</span><span class="complicated_view show_simple">2<sup>6</sup></span></th>
+						<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">32</span><span class="complicated_view show_simple">2<sup>5</sup></span></th>
+						<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">16</span><span class="complicated_view show_simple">2<sup>4</sup></span></th>
+						<th><span class="simple_view show_simple">8</span><span class="complicated_view show_simple">2<sup>3</sup></span></th>
+						<th><span class="simple_view show_simple">4</span><span class="complicated_view show_simple">2<sup>2</sup></span></th>
+						<th><span class="simple_view show_simple">2</span><span class="complicated_view show_simple">2<sup>1</sup></span></th>
+						<th><span class="simple_view show_simple">1</span><span class="complicated_view show_simple">2<sup>0</sup></span></th>
+					</tr>
+					<tr>
+						<th>Binär / Dualzahl</th>
+						<td class="table_hidden" data-table_visibility="2">0</td>
+						<td class="table_hidden" data-table_visibility="2">0</td>
+						<td class="table_hidden" data-table_visibility="2">0</td>
+						<td class="table_hidden" data-table_visibility="2">0</td>
+						<td class="table_hidden" data-table_visibility="1">0</td>
+						<td class="table_hidden" data-table_visibility="1">0</td>
+						<td class="table_hidden" data-table_visibility="1">0</td>
+						<td class="table_hidden" data-table_visibility="1">0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<th>Hexadezimal</th>
+						<td class="table_hidden" data-table_visibility="2" colspan="4">0</td>
+						<td class="table_hidden" data-table_visibility="1" colspan="4">0</td>
+						<td colspan="4">0</td>
+					</tr>
+				</table><br /><br /><br />
+
+				<h3>Mit Händen dargestellt</h3>
+				<div id="output_hands">
+					<div id="output_hands_left">
+						<img id="output_hand_left" src="/zahlensysteme/media/0.jpg" />
+						<img id="output_hand_left_e" src="/zahlensysteme/media/empty.png" />
+					</div>
+					<div id="output_hands_right">
+						<img id="output_hand_right" src="/zahlensysteme/media/0.jpg" />
+						<img id="output_hand_right_e" src="/zahlensysteme/media/empty.png" />
+					</div>
+				</div><br />
 			</div>
 		</div>
 
