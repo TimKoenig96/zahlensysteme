@@ -35,6 +35,7 @@ body {
 	width: 100vw;
 	margin: 0;
 	background-color: var(--elev_0);
+	overflow: hidden scroll;
 }
 
 h1 {
