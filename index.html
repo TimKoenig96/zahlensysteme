@@ -11,7 +11,8 @@
 
 		<div id="container">
 			<p id="theme_switcher">Light theme nutzen?</p>
-	
+
+			<!-- Explanation -->
 			<div class="section">
 				<h1>Zahlensysteme erklärt</h1>
 				<hr />
@@ -55,18 +56,26 @@
 				</p>
 			</div>
 
+			<!-- Simple table and hands -->
 			<div class="section">
 				<h1>Veranschaulichung</h1>
 				<hr />
-				<h3>Input in Dezimal</h3>
-				<div id="illust_inputs">
-					<input type="number" id="decimal_input_number" min="0" max="4095" value="0" />
-					<input type="range" id="decimal_input_slider" min="0" max="4095" value="0" />
-					<input type="checkbox" id="simple_view" checked />
-					<label for="simple_view">Simple<br />Darstellung</label>
+
+				<!-- Inputs -->
+				<div id="sticky_inputs">
+					<div>
+						<h3>Input in Dezimal</h3>
+						<div id="illust_inputs">
+							<input type="number" id="decimal_input_number" min="0" max="4095" value="0" />
+							<input type="range" id="decimal_input_slider" min="0" max="4095" value="0" />
+							<input type="checkbox" id="simple_view" checked />
+							<label for="simple_view">Simple<br />Darstellung</label>
+						</div>
+					</div>
 				</div><br /><br /><br />
 
-				<h3>Einfacher Output als Tabelle</h3>
+				<!-- Simple table -->
+				<h3>Output als Tabelle</h3>
 				<table id="simple_output_table">
 					<tr>
 						<th>Stellenwert</th>
@@ -106,6 +115,7 @@
 					</tr>
 				</table><br /><br /><br />
 
+				<!-- Hands -->
 				<h3>Mit Händen dargestellt</h3>
 				<div id="output_hands">
 					<div id="output_hands_left">
@@ -116,8 +126,56 @@
 						<img id="output_hand_right" src="/zahlensysteme/media/0.jpg" />
 						<img id="output_hand_right_e" src="/zahlensysteme/media/empty.png" />
 					</div>
-				</div><br />
+				</div>
 			</div>
+
+			<!-- Calculations -->
+			<!-- <div class="section">
+				<h1>Rechnungen</h1>
+				<hr />
+
+				<div id="bin_dec_calcs">
+					<div>
+						<table id="binary_calculation">
+							<thead>
+								<tr>
+									<th>Nummer</th>
+									<th>&#247;2</th>
+									<th>Abgerundet</th>
+									<th>Rest vorhanden?</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>0</td>
+									<td>&#247;2</td>
+									<td>0</td>
+									<td>Nein (0)</td>
+								</tr>
+								<tr>
+									<td>0</td>
+									<td>&#247;2</td>
+									<td>0</td>
+									<td>Nein (0)</td>
+								</tr>
+								<tr>
+									<td>0</td>
+									<td>&#247;2</td>
+									<td>0</td>
+									<td>Nein (0)</td>
+								</tr>
+								<tr>
+									<td>0</td>
+									<td>&#247;2</td>
+									<td>0</td>
+									<td>Nein (0)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<table>test</table>
+				</div>
+			</div> -->
 		</div>
 
 		<script src="/zahlensysteme/main.js"></script>

@@ -5,6 +5,7 @@
 	--text_s_normal: 16px;
 
 	--spacing: 12px;
+	--border_radius: 8px;
 
 	--elev_0: rgb(220, 220, 220);
 	--elev_1: rgba(255, 255, 255, 0.4);
@@ -34,7 +35,6 @@ body {
 	width: 100vw;
 	margin: 0;
 	background-color: var(--elev_0);
-	overflow-x: hidden;
 }
 
 h1 {
@@ -53,7 +53,7 @@ input[type="number"] {
 	width: 6em;
 	background-color: var(--elev_1);
 	border: 1px solid var(--text_c_sec);
-	border-radius: 6px;
+	border-radius: var(--border_radius);
 	-moz-appearance: textfield;
 	appearance: textfield;
 	padding: 2px;
@@ -74,7 +74,7 @@ input:focus { outline: none; }
 	background-color: var(--elev_1);
 	padding: var(--spacing) calc(2 * var(--spacing));
 	margin-bottom: 20px;
-	border-radius: var(--spacing);
+	border-radius: var(--border_radius);
 }
 
 .simple_view:not(.show_simple) { display: none; }
@@ -100,6 +100,24 @@ input:focus { outline: none; }
 	padding: var(--spacing);
 }
 
+#sticky_inputs {
+	position: sticky;
+	background-color: var(--elev_0);
+	z-index: 100;
+	margin: 0 calc(-1 * var(--spacing)) calc(-1 * var(--spacing)) calc(-1 * var(--spacing));
+	padding: 0 var(--spacing) var(--spacing) var(--spacing);
+	border-radius: 0 0 var(--border_radius) var(--border_radius);
+	transition: box-shadow .2s;
+}
+
+#sticky_inputs > div {
+	background-color: var(--elev_1);
+	padding-bottom: var(--spacing);
+	margin: 0 calc(-1 * var(--spacing)) calc(-1 * var(--spacing)) calc(-1 * var(--spacing));
+	padding: 0 var(--spacing) var(--spacing) var(--spacing);
+	border-radius: 0 0 var(--border_radius) var(--border_radius);
+}
+
 #illust_inputs {
 	display: flex;
 	flex-direction: row;
@@ -112,7 +130,7 @@ input:focus { outline: none; }
 	appearance: none;
 	width: 100%;
 	height: 6px;
-	border-radius: 3px;
+	border-radius: var(--border_radius);
 	margin: 0;
 	outline: none;
 	background: var(--elev_2);
@@ -121,7 +139,7 @@ input:focus { outline: none; }
 #decimal_input_slider::-moz-range-thumb {
 	width: 12px;
 	height: 30px;
-	border-radius: 4px;
+	border-radius: var(--border_radius);
 	cursor: ew-resize;
 	background-color: var(--text_c_sec);
 	border: none;
@@ -131,7 +149,7 @@ input:focus { outline: none; }
 	appearance: none;
 	width: 12px;
 	height: 30px;
-	border-radius: 4px;
+	border-radius: var(--border_radius);
 	cursor: ew-resize;
 	background-color: var(--text_c_sec);
 	border: none;
@@ -154,27 +172,16 @@ input:focus { outline: none; }
 }
 
 #simple_output_table td { text-align: center; }
-/* #endregion */
 
-
-
-/* #region | Hands */
-#output_hands {
-	display: flex;
-	border-radius: 8px;
-}
+#output_hands { display: flex; }
 
 #output_hands img {
 	width: 100%;
+	border-radius: 0 var(--border_radius) var(--border_radius) 0;
 }
 
-#output_hands_left img {
-	transform: scaleX(-1);
-}
-
-#output_hands_left, #output_hands_right {
-	position: relative;
-}
+#output_hands_left img { transform: scaleX(-1); }
+#output_hands_left, #output_hands_right { position: relative; }
 
 #output_hand_left_e, #output_hand_right_e {
 	position: absolute;
@@ -182,4 +189,6 @@ input:focus { outline: none; }
 	left: 0;
 	height: 100%;
 }
+
+#bin_dec_calcs { display: flex; }
 /* #endregion */
