@@ -81,6 +81,24 @@ input:focus { outline: none; }
 .simple_view:not(.show_simple) { display: none; }
 .complicated_view.show_simple { display: none;}
 .table_hidden { display: none; }
+
+.hand_hidden {
+	/*
+		Using opacity instead of display
+		to force all images to load
+	*/
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.hand_extra {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+}
 /* #endregion */
 
 
@@ -183,13 +201,6 @@ input:focus { outline: none; }
 
 #output_hands_left img { transform: scaleX(-1); }
 #output_hands_left, #output_hands_right { position: relative; }
-
-#output_hand_left_e, #output_hand_right_e {
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-}
 
 #bin_dec_calcs { display: flex; }
 /* #endregion */

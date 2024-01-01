@@ -3,10 +3,10 @@ var sticky_inputs;
 var decimal_input_number;
 var decimal_input_slider;
 var simple_output_table;
-var hand_left_e;
-var hand_left;
-var hand_right_e;
-var hand_right;
+var current_rhand_e;
+var current_rhand = "right_0";
+var current_lhand_e;
+var current_lhand = "left_0";
 
 var old_decimal = 0;
 var decimal_inputs_offset;
@@ -43,32 +43,66 @@ function updateAllExamples(decimal) {
 	for (i = 0; i < 12; i++) simple_output_table.rows[1].cells[i + 1].innerText = binary.charAt(i);
 	for (i = 0; i < 3; i++) simple_output_table.rows[2].cells[i + 1].innerText = hexadecimal.charAt(i);
 
-	// Update hand images
-	var lhand_e, lhand, rhand_e, rhand = "";
+	// Get IDs of next image elements
+	var lhand_e, lhand, rhand_e, rhand;
 	if (decimal <= 1023) {
-		rhand_e = "/zahlensysteme/media/empty.png";
-		lhand_e = "/zahlensysteme/media/empty.png";
-		rhand = `/zahlensysteme/media/${parseInt(binary.substr(7, 5), 2)}.jpg`;
-		lhand = `/zahlensysteme/media/${parseInt(binary.substr(2, 5).split("").reverse().join(""), 2)}.jpg`;
+		rhand = `right_${parseInt(binary.substr(7, 5), 2)}`;
+		lhand = `left_${parseInt(binary.substr(2, 5).split("").reverse().join(""), 2)}`;
 	} else if (decimal <= 2047) {
 		var rhand_num = parseInt(binary.substr(7, 5), 2);
-		rhand_e = `/zahlensysteme/media/${rhand_num}_${binary.substr(6, 1)}.png`;
-		lhand_e = `/zahlensysteme/media/empty.png`;
-		rhand = `/zahlensysteme/media/${rhand_num}.jpg`;
-		lhand = `/zahlensysteme/media/${parseInt(binary.substr(1, 5).split("").reverse().join(""), 2)}.jpg`;
+		rhand_e = `right_${rhand_num}_${binary.substr(6, 1)}`;
+		rhand = `right_${rhand_num}`;
+		lhand = `left_${parseInt(binary.substr(1, 5).split("").reverse().join(""), 2)}`;
 	} else {
 		var rhand_num = parseInt(binary.substr(7, 5), 2);
 		var lhand_num = parseInt(binary.substr(0, 5).split("").reverse().join(""), 2);
-		rhand_e = `/zahlensysteme/media/${rhand_num}_${binary.substr(6, 1)}.png`;
-		lhand_e = `/zahlensysteme/media/${lhand_num}_${binary.substr(5, 1)}.png`;
-		rhand = `/zahlensysteme/media/${rhand_num}.jpg`;
-		lhand = `/zahlensysteme/media/${lhand_num}.jpg`;
+		rhand_e = `right_${rhand_num}_${binary.substr(6, 1)}`;
+		lhand_e = `left_${lhand_num}_${binary.substr(5, 1)}`;
+		rhand = `right_${rhand_num}`;
+		lhand = `left_${lhand_num}`;
 	}
 
-	if (hand_left_e.src !== lhand_e) hand_left_e.src = lhand_e;
-	if (hand_left.src !== lhand) hand_left.src = lhand;
-	if (hand_right_e.src !== rhand_e) hand_right_e.src = rhand_e;
-	if (hand_right.src !== rhand) hand_right.src = rhand;
+	// Check if they need to be updated
+	if (rhand !== current_rhand) {
+		console.log(`Update right hand from ${current_rhand} to ${rhand}`);
+		document.getElementById(rhand).classList.remove("hand_hidden");
+		document.getElementById(current_rhand).classList.add("hand_hidden");
+		current_rhand = rhand;
+	}
+	if (rhand_e !== current_rhand_e) {
+		console.log(`Update right hand E from ${current_rhand_e} to ${rhand_e}`);
+		if (current_rhand_e === undefined) {
+			document.getElementById(rhand_e).classList.remove("hand_hidden");
+		} else {
+			if (rhand_e === undefined) {
+				document.getElementById(current_rhand_e).classList.add("hand_hidden");
+			} else {
+				document.getElementById(rhand_e).classList.remove("hand_hidden");
+				document.getElementById(current_rhand_e).classList.add("hand_hidden");
+			}
+		}
+		current_rhand_e = rhand_e;
+	}
+	if (lhand !== current_lhand) {
+		console.log(`Update left hand from ${current_lhand} to ${lhand}`);
+		document.getElementById(lhand).classList.remove("hand_hidden");
+		document.getElementById(current_lhand).classList.add("hand_hidden");
+		current_lhand = lhand;
+	}
+	if (lhand_e !== current_lhand_e) {
+		console.log(`Update right hand E from ${current_lhand_e} to ${lhand_e}`);
+		if (current_lhand_e === undefined) {
+			document.getElementById(lhand_e).classList.remove("hand_hidden");
+		} else {
+			if (lhand_e === undefined) {
+				document.getElementById(current_lhand_e).classList.add("hand_hidden");
+			} else {
+				document.getElementById(lhand_e).classList.remove("hand_hidden");
+				document.getElementById(current_lhand_e).classList.add("hand_hidden");
+			}
+		}
+		current_lhand_e = lhand_e;
+	}
 }
 
 function updateDecimalInputs() {
@@ -101,11 +135,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	decimal_input_number = this.getElementById("decimal_input_number");
 	simple_output_table = this.getElementById("simple_output_table");
 	sticky_inputs = this.getElementById("sticky_inputs");
-
-	hand_left_e = this.getElementById("output_hand_left_e");
-	hand_left = this.getElementById("output_hand_left");
-	hand_right_e = this.getElementById("output_hand_right_e");
-	hand_right = this.getElementById("output_hand_right");
 
 	decimal_input_slider.addEventListener("input", updateDecimalInputs);
 	decimal_input_number.addEventListener("input", updateDecimalInputs);
