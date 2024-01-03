@@ -42,7 +42,7 @@
 				<h3>Hexadezimalzahlen / Base-16</h3>
 				<p>
 					Hexa (Lateinisch) und Hex (Griechisch) bedeuten sechs. Dies kann man eventuell besser
-					merken, wenn man an ein Hexagon oder ein Stoppschild denkt. Das "Dezi" ist hier ebenfalls
+					merken, wenn man an ein Hexagon denkt. Das "Dezi" ist hier ebenfalls
 					vertreten.<br />
 					Hexa + Dezi = 6 + 10 = 16.<br /><br />
 
@@ -56,7 +56,7 @@
 				</p>
 			</div>
 
-			<!-- Simple table and hands -->
+			<!-- Inputs, simple table and hands -->
 			<div class="section">
 				<h1>Veranschaulichung</h1>
 				<hr />
@@ -76,44 +76,46 @@
 
 				<!-- Simple table -->
 				<h3>Output als Tabelle</h3>
-				<table id="simple_output_table">
-					<tr>
-						<th>Stellenwert</th>
-						<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">2048</span><span class="complicated_view show_simple">2<sup>11</sup></span></th>
-						<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">1024</span><span class="complicated_view show_simple">2<sup>10</sup></span></th>
-						<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">512</span><span class="complicated_view show_simple">2<sup>9</sup></span></th>
-						<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">256</span><span class="complicated_view show_simple">2<sup>8</sup></span></th>
-						<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">128</span><span class="complicated_view show_simple">2<sup>7</sup></span></th>
-						<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">64</span><span class="complicated_view show_simple">2<sup>6</sup></span></th>
-						<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">32</span><span class="complicated_view show_simple">2<sup>5</sup></span></th>
-						<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">16</span><span class="complicated_view show_simple">2<sup>4</sup></span></th>
-						<th><span class="simple_view show_simple">8</span><span class="complicated_view show_simple">2<sup>3</sup></span></th>
-						<th><span class="simple_view show_simple">4</span><span class="complicated_view show_simple">2<sup>2</sup></span></th>
-						<th><span class="simple_view show_simple">2</span><span class="complicated_view show_simple">2<sup>1</sup></span></th>
-						<th><span class="simple_view show_simple">1</span><span class="complicated_view show_simple">2<sup>0</sup></span></th>
-					</tr>
-					<tr>
-						<th>Binär / Dualzahl</th>
-						<td class="table_hidden" data-table_visibility="2">0</td>
-						<td class="table_hidden" data-table_visibility="2">0</td>
-						<td class="table_hidden" data-table_visibility="2">0</td>
-						<td class="table_hidden" data-table_visibility="2">0</td>
-						<td class="table_hidden" data-table_visibility="1">0</td>
-						<td class="table_hidden" data-table_visibility="1">0</td>
-						<td class="table_hidden" data-table_visibility="1">0</td>
-						<td class="table_hidden" data-table_visibility="1">0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-						<td>0</td>
-					</tr>
-					<tr>
-						<th>Hexadezimal</th>
-						<td class="table_hidden" data-table_visibility="2" colspan="4">0</td>
-						<td class="table_hidden" data-table_visibility="1" colspan="4">0</td>
-						<td colspan="4">0</td>
-					</tr>
-				</table><br /><br /><br />
+				<div class="table_container">
+					<table id="simple_output_table">
+						<tr>
+							<th>Stellenwert</th>
+							<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">2048</span><span class="complicated_view show_simple">2<sup>11</sup></span></th>
+							<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">1024</span><span class="complicated_view show_simple">2<sup>10</sup></span></th>
+							<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">512</span><span class="complicated_view show_simple">2<sup>9</sup></span></th>
+							<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">256</span><span class="complicated_view show_simple">2<sup>8</sup></span></th>
+							<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">128</span><span class="complicated_view show_simple">2<sup>7</sup></span></th>
+							<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">64</span><span class="complicated_view show_simple">2<sup>6</sup></span></th>
+							<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">32</span><span class="complicated_view show_simple">2<sup>5</sup></span></th>
+							<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">16</span><span class="complicated_view show_simple">2<sup>4</sup></span></th>
+							<th><span class="simple_view show_simple">8</span><span class="complicated_view show_simple">2<sup>3</sup></span></th>
+							<th><span class="simple_view show_simple">4</span><span class="complicated_view show_simple">2<sup>2</sup></span></th>
+							<th><span class="simple_view show_simple">2</span><span class="complicated_view show_simple">2<sup>1</sup></span></th>
+							<th><span class="simple_view show_simple">1</span><span class="complicated_view show_simple">2<sup>0</sup></span></th>
+						</tr>
+						<tr>
+							<th>Binär / Dualzahl</th>
+							<td class="table_hidden" data-table_visibility="2">0</td>
+							<td class="table_hidden" data-table_visibility="2">0</td>
+							<td class="table_hidden" data-table_visibility="2">0</td>
+							<td class="table_hidden" data-table_visibility="2">0</td>
+							<td class="table_hidden" data-table_visibility="1">0</td>
+							<td class="table_hidden" data-table_visibility="1">0</td>
+							<td class="table_hidden" data-table_visibility="1">0</td>
+							<td class="table_hidden" data-table_visibility="1">0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<th>Hexadezimal</th>
+							<td class="table_hidden" data-table_visibility="2" colspan="4">0</td>
+							<td class="table_hidden" data-table_visibility="1" colspan="4">0</td>
+							<td colspan="4">0</td>
+						</tr>
+					</table>
+				</div><br /><br /><br />
 
 				<!-- Hands -->
 				<h3>Mit Händen dargestellt</h3>
@@ -315,6 +317,93 @@
 						<img class="hand_hidden hand_extra" id="right_9_1" src="/zahlensysteme/media/9_1.png" />
 					</div>
 				</div>
+			</div>
+
+			<!-- Calculations -->
+			<div class="section">
+				<h1>Rechnungen</h1>
+				<hr />
+	
+				<!-- Decimal to binary -->
+				<h3>Dezimal in Binär</h3>
+				<div class="table_container">
+					<table id="to_binary_table">
+						<tr>
+							<th>Dezimal</th>
+							<th rowspan="5">&#247;2</th>
+							<th>Abgerundet</th>
+							<th>Rest?</th>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr class="table_hidden" data-table_visibility="1">
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr class="table_hidden" data-table_visibility="1">
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr class="table_hidden" data-table_visibility="1">
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr class="table_hidden" data-table_visibility="1">
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr class="table_hidden" data-table_visibility="2">
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr class="table_hidden" data-table_visibility="2">
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr class="table_hidden" data-table_visibility="2">
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+						<tr class="table_hidden" data-table_visibility="2">
+							<td>0</td>
+							<td>0</td>
+							<td>Nein (0)</td>
+						</tr>
+					</table>
+				</div>
+				<p>
+					Erklärung: Man teilt die Dezimalzahl durch 2 und rundet diese ab. Wenn das
+					Ergebnis eine Kommastelle gehabt hätte, hier als "Rest?" gekennzeichnet,
+					dann ist die Binärzahl an dieser Stelle eine 1. Wenn die Zahl keine Kommastelle hat,
+					ist die Binärzahl eine 0. Das wiederholt man so lange, bis die Dezimalzahl eine 0 ist.<br /><br />
+
+					Die Reste kann man nun in eine Reihe schreiben indem man von unten anfängt: <span id="binary_result">0000</span>
+				</p>
 			</div>
 		</div>
 
