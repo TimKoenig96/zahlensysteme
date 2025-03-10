@@ -1,0 +1,1 @@
+[Zahlensysteme](https://github.com/TimKoenig96/zahlensysteme) © 2025 by [Tim König](https://github.com/TimKoenig96) is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)
