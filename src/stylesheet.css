@@ -37,6 +37,34 @@ body {
 /* #endregion */
 
 
+/* #region | Misc classes and elements */
+.tip {
+	border-left: var(--border_thickness) solid var(--elev_2);
+	padding: var(--spacing_s) var(--spacing_s) var(--spacing_s) var(--border_thickness);
+	border-radius: calc(var(--border_thickness) / 2);
+	background-color: var(--elev_0);
+}
+
+.tip::before { content: "💡"; }
+
+code {
+	background-color: var(--elev_0);
+	padding: var(--spacing_s);
+	border-radius: var(--spacing_s);
+	color: var(--text_secondary);
+	font-size: large;
+	white-space: nowrap;
+}
+
+hr {
+	margin: var(--spacing_m) 0;
+	border: none;
+	border-bottom: var(--border_thickness) solid var(--elev_2);
+	border-radius: var(--border_thickness);
+}
+/* #endregion */
+
+
 /* #region | Media queries */
 @media screen and (prefers-color-scheme: dark) {
 	:root { color-scheme: dark; }
