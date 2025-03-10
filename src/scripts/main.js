@@ -41,8 +41,8 @@ function updateAllExamples(decimal) {
 	}
 
 	// Update simple table fields
-	for (i = 0; i < 12; i++) simple_output_table.rows[1].cells[i + 1].innerText = binary.charAt(i);
-	for (i = 0; i < 3; i++) simple_output_table.rows[2].cells[i + 1].innerText = hexadecimal.charAt(i);
+	for (let i = 0; i < 12; i++) simple_output_table.rows[1].cells[i + 1].innerText = binary.charAt(i);
+	for (let i = 0; i < 3; i++) simple_output_table.rows[2].cells[i + 1].innerText = hexadecimal.charAt(i);
 
 	// Get IDs of next image elements
 	var lhand_e, lhand, rhand_e, rhand;
@@ -127,7 +127,7 @@ function updateAllExamples(decimal) {
 
 	// Update decimal to binary calculation table fields
 	var remaining_decimal = decimal;
-	for (i = 0; i < 12; i++) {
+	for (let i = 0; i < 12; i++) {
 
 		// Update decimal field
 		to_binary_table.rows[i + 1].cells[0].innerText = remaining_decimal;
