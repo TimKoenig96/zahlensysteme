@@ -20,12 +20,12 @@ function switchTheme() {
 	document.documentElement.dataset.theme = current_theme;
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+export function setupThemeToggler() {
 	if (localStorage.getItem("theme") === "light") {
-		this.documentElement.dataset.theme = "light";
+		document.documentElement.dataset.theme = "light";
 		setThemeString();
 		current_theme = "light";
 	}
 
-	this.getElementById("theme_switcher").addEventListener("click", switchTheme);
-});
+	document.getElementById("theme_switcher").addEventListener("click", switchTheme);
+}

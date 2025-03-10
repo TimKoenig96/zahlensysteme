@@ -1,3 +1,5 @@
+import { setupThemeToggler } from "./theme.js";
+
 // #region | Variables and elements
 var sticky_inputs;
 var decimal_input_number;
@@ -189,5 +191,8 @@ document.addEventListener("DOMContentLoaded", function() {
 			sticky_inputs.removeAttribute("style");
 		}
 	});
+
+	// Set up theme toggler
+	setupThemeToggler();
 });
 // #endregion
