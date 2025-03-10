@@ -47,6 +47,8 @@ body {
 
 .tip::before { content: "💡"; }
 
+.red { color: var(--text_red); }
+
 code {
 	background-color: var(--elev_0);
 	padding: var(--spacing_s);
@@ -61,6 +63,31 @@ hr {
 	border: none;
 	border-bottom: var(--border_thickness) solid var(--elev_2);
 	border-radius: var(--border_thickness);
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+th, td {
+	text-align: center;
+	border: 1px solid var(--elev_2);
+	padding: .3em 0;
+}
+/* #endregion */
+
+
+/* #region | Section styling */
+.section {
+	padding: var(--spacing_m);
+	border-radius: var(--spacing_m);
+	background-color: var(--elev_1);
+}
+
+.section h1 {
+	text-align: center;
+	margin: 0;
 }
 /* #endregion */
 

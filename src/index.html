@@ -56,5 +56,195 @@
 			Hexa (6) + Dezimal (10) = Hexadezimal (16)
 		</p>
 	</div>
+
+	<!-- TODO: Show how to count binary with hands via interactive images and output table -->
+
+	<div class="section">
+		<h1>Umrechnung</h1>
+		<hr>
+
+		<h2>Binär zu Dezimal</h2>
+		<p>Eine Binärzahl könnte so aussehen: <code>0110 1100 010<span class="red">0</span></code></p>
+		<p>
+			Jede einzelne Stelle in dieser Sammlung an Binärzahlen hat einen bestimmten Wert. Dieser Wert heißt
+			<b>Stellenwert</b>. Die letzte Binärzahl, hier in Rot mit dem normalen Wert <code>0</code>,
+			hat einen Stellenwert von 1. Der Stellenwert verdoppelt sich mit jeder weiteren Zahl nach links.
+			Hier eine Tabelle zur erläuterung:
+		</p>
+		<table>
+			<tr>
+				<th>Wert in Binär</th>
+				<td><code>0</code></td>
+				<td><code>1</code></td>
+				<td><code>1</code></td>
+				<td><code>0</code></td>
+				<td><code>1</code></td>
+				<td><code>1</code></td>
+				<td><code>0</code></td>
+				<td><code>0</code></td>
+				<td><code>0</code></td>
+				<td><code>1</code></td>
+				<td><code>0</code></td>
+				<td><code><span class="red">0</span></code></td>
+			</tr>
+			<tr>
+				<th>Stellenwert</th>
+				<td>2048</td>
+				<td>1024</td>
+				<td>512</td>
+				<td>256</td>
+				<td>128</td>
+				<td>64</td>
+				<td>32</td>
+				<td>16</td>
+				<td>8</td>
+				<td>4</td>
+				<td>2</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<th>Resultat</th>
+				<td>0</td>
+				<td>1024</td>
+				<td>512</td>
+				<td>0</td>
+				<td>128</td>
+				<td>64</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>4</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+		</table>
+		<p>Jetzt nur noch alle Resultate summieren, und man erhält <code>1732</code>.</p><br>
+
+		<h2>Dezimal zu Binär</h2>
+		<p>Es gibt mehrere Methoden Dezimalzahlen in Binär umzuwandeln. Hier ist meine bevorzugte Variante:</p>
+		<ol>
+			<li>Dezimalzahl durch 2 teilen.</li>
+			<li>Wenn <code>0,5</code> übrig sind: <code>1</code> eintragen, sonst <code>0</code> eintragen.</li>
+			<li>Falls nötig, abrunden.</li>
+		</ol>
+		<p>So bald man nur noch <code>0,5</code> übrig hat, ist man fertig. Hier die Rechnung:</p>
+		<table>
+			<tr>
+				<th>Schritt Nr.</th>
+				<th>Rechnung</th>
+				<th>Hatte Rest?</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td><code>1732 / 2 = 866</code></td>
+				<td>Nein, also <code class="red">0</code></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td><code>866 / 2 = 433</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td><code>433 / 2 = 216,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td><code>216 / 2 = 108</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td><code>108 / 2 = 54</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td><code>54 / 2 = 27</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td><code>27 / 2 = 13,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td><code>13 / 2 = 6,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td><code>6 / 2 = 3</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td><code>3 / 2 = 1,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td><code>1 / 2 = 0,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+		</table>
+		<p class="tip">
+			Bitte beachten: Die zuerst errechnete Binärzahl, hier in Rot, ist die Letzte aus allen Binärzahlen!
+		</p><br>
+
+		<h2>Dezimal zu Hexadezimal</h2>
+		<p>Zuerst ein kleiner Spickzettel:</p>
+		<table>
+			<tr>
+				<th>Stellenwert</th>
+				<td>0</td>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+				<td>11</td>
+				<td>12</td>
+				<td>13</td>
+				<td>14</td>
+				<td>15</td>
+			</tr>
+			<tr>
+				<th>Hexadezimal</th>
+				<td><code>0</code></td>
+				<td><code>1</code></td>
+				<td><code>2</code></td>
+				<td><code>3</code></td>
+				<td><code>4</code></td>
+				<td><code>5</code></td>
+				<td><code>6</code></td>
+				<td><code>7</code></td>
+				<td><code>8</code></td>
+				<td><code>9</code></td>
+				<td><code>A</code></td>
+				<td><code>B</code></td>
+				<td><code>C</code></td>
+				<td><code>D</code></td>
+				<td><code>E</code></td>
+				<td><code>F</code></td>
+			</tr>
+		</table>
+		<p>Jetzt die Rechnung:</p>
+		<ol>
+			<li>Dezimalzahl modulo 16.</li>
+			<li>Rest ist der Stellenwert der Dezimalzahl.</li>
+			<li>Wiederholen bis der Stellenwert weniger als 16 ist.</li>
+		</ol>
+		<!-- TODO: Tip about modulo -->
+		<!-- TODO: Dec to hex conversion -->
+		<!-- TODO: Hex to dec conversion -->
+	</div>
 </body>
 </html>
