@@ -75,6 +75,22 @@ th, td {
 	border: 1px solid var(--elev_2);
 	padding: .3em 0;
 }
+
+.dec_inputs {
+	display: flex;
+	gap: var(--spacing_m);
+}
+
+#dec_number_input {
+	flex-shrink: 0;
+	padding: var(--spacing_m);
+	background-color: var(--elev_0);
+	border: none;
+	border-radius: var(--spacing_m);
+	appearance: textfield;
+}
+
+#dec_range_input { flex-grow: 1; }
 /* #endregion */
 
 
