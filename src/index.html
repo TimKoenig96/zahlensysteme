@@ -281,9 +281,14 @@
 
 		<h2>Hexadezimal zu Dezimal</h2>
 		<p>
-			Jedes Zeichen in der Hexadezimalen Zeichenkette hat einen eigenen Wert.
-			Diesen Wert kann man errechnen:
+			Um Hexadezimal in Dezimal umzurechnen, muss man die folgenden Schritte für jedes hexadezimale Zeichen,
+			mit dem letzten angefangen, durchführen:
 		</p>
+		<ol>
+			<li>Hexadezimal in den Stellenwert umrechnen.</li>
+			<li>Rechnen: <code>Stellenwert * 16<sup>Index</sup></code></li>
+			<li><code>Index</code> um 1 erhöhen und wieder bei Schritt 1 anfangen.</li>
+		</ol>
 		<table>
 			<tr>
 				<th>Schritt Nr.</th>
@@ -293,10 +298,22 @@
 			<tr>
 				<td>1</td>
 				<td><code class="red">4</code> &gt; <code>4</code></td>
-				<td></td>
+				<td><code>4 * 16<sup>0</sup> = 4</code></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td><code>C</code> &gt; <code>12</code></td>
+				<td><code>12 * 16<sup>1</sup> = 192</code></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td><code>6</code> &gt; <code>6</code></td>
+				<td><code>6 * 16<sup>2</sup> = 1536</code></td>
 			</tr>
 		</table>
-		<!-- TODO: Hex to dec conversion -->
+		<p>
+			Der letzte Schritt ist alle Ergebnisse zu summieren: <code>4 + 192 + 1536 = 1732</code>.
+		</p>
 	</div>
 </body>
 </html>
