@@ -238,12 +238,64 @@
 		</table>
 		<p>Jetzt die Rechnung:</p>
 		<ol>
-			<li>Dezimalzahl modulo 16.</li>
-			<li>Rest ist der Stellenwert der Dezimalzahl.</li>
-			<li>Wiederholen bis der Stellenwert weniger als 16 ist.</li>
+			<li>Dezimalzahl durch 16 teilen.</li>
+			<li>Das abgerundete Ergebnis für später merken.</li>
+			<li>Dezimalzahl Modulo 16 ist die Hexadezimalzahl.</li>
+			<li>Das abgerundete Ergebnis wieder für Schritt 1 nutzen.</li>
 		</ol>
-		<!-- TODO: Tip about modulo -->
-		<!-- TODO: Dec to hex conversion -->
+		<p class="tip">
+			Modulo gibt den Rest an, der nach einer Teilung übrig ist.<br>
+			<code>1732 / 16 = 108,25</code> | 108 ganze<br>
+			<code>1732 - (16 * 108) = 4</code> | Das ist eine Modulo-Rechnung<br>
+			<code>1732 Mod 16 = 4</code> | Alternative Darstellung
+		</p>
+		<table>
+			<tr>
+				<th>Schritt Nr.</th>
+				<th>Rechnung (Ganze)</th>
+				<th>Rechnung (Modulo)</th>
+				<th>Hexadezimal</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td><code>1732 / 16 = 108,25</code></td>
+				<td><code>1732 Mod 16 = 4</code></td>
+				<td><code class="red">4</code></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td><code>108 / 16 = 6,75</code></td>
+				<td><code>108 Mod 16 = 12</code></td>
+				<td><code>C</code></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td><code>6 / 16 = 0,375</code></td>
+				<td><code>6 Mod 16 = 6</code></td>
+				<td><code>6</code></td>
+			</tr>
+		</table>
+		<p>
+			Das Ergebnis ist somit <code>6C<span class="red">4</span></code>
+		</p><br>
+
+		<h2>Hexadezimal zu Dezimal</h2>
+		<p>
+			Jedes Zeichen in der Hexadezimalen Zeichenkette hat einen eigenen Wert.
+			Diesen Wert kann man errechnen:
+		</p>
+		<table>
+			<tr>
+				<th>Schritt Nr.</th>
+				<th>Hex-Code &gt; Stellenwert</th>
+				<th>Rechnung</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td><code class="red">4</code> &gt; <code>4</code></td>
+				<td></td>
+			</tr>
+		</table>
 		<!-- TODO: Hex to dec conversion -->
 	</div>
 </body>
