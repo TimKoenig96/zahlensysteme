@@ -91,6 +91,8 @@ th, td {
 }
 
 #dec_range_input { flex-grow: 1; }
+
+#hands_canvas { width: 100%; }
 /* #endregion */
 
 
