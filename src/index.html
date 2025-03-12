@@ -27,31 +27,34 @@
 			<code>0</code> und <code>1</code>.
 		</p>
 		<p>
-			Normale computer speichern <b>alle Daten und Dateien</b> in Binär. Alle weiteren Systeme sind
-			nur Darstellungssysteme um die Zahlen etwas einfacher anzeigen zu können.
+			Normale computer speichern <b>alle Daten und Dateien</b> in Binär, weil sie mit elektischen
+			Zuständen (An/Aus) arbeiten.
+		</p>
+		<p>
+			Alle weiteren Zahlensysteme werden nur zur darstellung genutzt, um uns Menschen das Auslesen
+			der Daten zu vereinfachen.
 		</p>
 
 		<h2>Oktal</h2>
 		<p>
-			Das oktale Darstellungssystem, auch <b>Basis-8</b> genannt, wird fast gar nicht mehr verwendet.
+			Das Oktale Zahlensystem, auch <b>Basis-8</b> genannt, wird fast gar nicht mehr verwendet.
 			Es kann insgesamt 8 Werte haben, von <code>0</code> bis <code>7</code>.
 		</p>
 
 		<h2>Dezimal</h2>
 		<p>
-			Wir nutzen das dezimale Darstellungssystem, auch <b>Basis-10</b> genannt, jeden Tag:
-			Wenn wir zählen, Mathe machen oder etwas messen. Es geht von <code>0</code> bis
-			<code>9</code> und ist somit das für Menschen am einfachsten zu verstehende System.
+			Wir nutzen das dezimale Zahlensystem, auch <b>Basis-10</b> genannt, jeden Tag:
+			Wenn wir zählen, Mathe machen oder etwas messen. Es besteht aus zehn Ziffern: <code>0</code> bis
+			<code>9</code>.
 		</p>
 
 		<h2>Hexadezimal</h2>
 		<p>
-			Eines der für Computer am häufigsten genutzten Darstellungssysteme. Es geht von <code>0</code>
-			bis <code>9</code> und von <code>A</code> bis <code>F</code> und bietet somit insgesamt 16
-			Werte pro Stelle.
+			Eines der für Computer am häufigsten genutzten Zahlensysteme. Es besteht aus 16 Ziffern:
+			<code>0</code> bis <code>9</code> und <code>A</code> bis <code>F</code>.
 		</p>
 		<p>
-			Mit insgesamt 16 Werten pro Stelle ist möglich größere Dezimalzahlen in kürzerer Form darzustellen.
+			Da jedes Zeichen 16 Werte haben kann, lassen sich größere Zahlen kompakter schreiben.
 		</p>
 		<p class="tip">
 			Hexa (6) + Dezimal (10) = Hexadezimal (16)
@@ -63,17 +66,28 @@
 		<h1>Umrechnung</h1>
 		<hr>
 
+		<p class="tip">
+			Die letzte Ziffer markiere ich immer in Rot, damit man genau weiß, wo der Anfang und wo das Ende ist.
+		</p>
+
 		<h2>Binär zu Dezimal</h2>
-		<p>Eine Binärzahl könnte so aussehen: <code>0110 1100 010<span class="red">0</span></code></p>
 		<p>
-			Jede einzelne Stelle in dieser Sammlung an Binärzahlen hat einen bestimmten Wert. Dieser Wert heißt
-			<b>Stellenwert</b>. Die letzte Binärzahl, hier in Rot mit dem normalen Wert <code>0</code>,
-			hat einen Stellenwert von 1. Der Stellenwert verdoppelt sich mit jeder weiteren Zahl nach links.
-			Hier eine Tabelle zur erläuterung:
+			Eine Binärzahl könnte so aussehen: <code>0110 1100 010<span class="red">0</span></code>
+		</p>
+		<p>
+			Jede <b>Ziffer</b> (<code>0</code> oder <code>1</code>) in einer Binärzahl hat einen
+			Bestimmten <b>Stellenwert.</b>
+		</p>
+		<p>
+			Der Wert hängt von der Position der Ziffer ab. Die letzte, also <b>rechteste Ziffer</b>,
+			hat den Stellenwert 1. Dieser Stellenwert <b>verdoppelt</b> sich bei jeder vorherigen Ziffer.
+		</p>
+		<p>
+			Hier eine Tabelle zur Erläuterung:
 		</p>
 		<table>
 			<tr>
-				<th>Wert in Binär</th>
+				<th>Ziffer in Binär</th>
 				<td><code>0</code></td>
 				<td><code>1</code></td>
 				<td><code>1</code></td>
@@ -86,6 +100,21 @@
 				<td><code>1</code></td>
 				<td><code>0</code></td>
 				<td><code><span class="red">0</span></code></td>
+			</tr>
+			<tr>
+				<th>Stelle von Hinten</th>
+				<td>12</td>
+				<td>11</td>
+				<td>10</td>
+				<td>9</td>
+				<td>8</td>
+				<td>7</td>
+				<td>6</td>
+				<td>5</td>
+				<td>4</td>
+				<td>3</td>
+				<td>2</td>
+				<td>1</td>
 			</tr>
 			<tr>
 				<th>Stellenwert</th>
@@ -118,7 +147,13 @@
 				<td>0</td>
 			</tr>
 		</table>
-		<p>Jetzt nur noch alle Resultate summieren, und man erhält <code>1732</code>.</p><br>
+		<p>
+			Jetzt nur noch alle Resultate summieren, und man erhält <code>1732</code>.
+		</p>
+		<p>
+			Formel: <code>(Ziffer * Stelle von Hinten ^ 2) + (Ziffer * Stelle von Hinten ^ 2) + ...</code><br>
+			Das dann für alle Binären Ziffern machen, und das Ergebnis sollte mit meinem übereinstimmen.
+		</p><br>
 
 		<h2>Dezimal zu Binär</h2>
 		<p>Es gibt mehrere Methoden Dezimalzahlen in Binär umzuwandeln. Hier ist meine bevorzugte Variante:</p>
@@ -126,8 +161,8 @@
 			<li>Dezimalzahl durch 2 teilen.</li>
 			<li>Wenn <code>0,5</code> übrig sind: <code>1</code> eintragen, sonst <code>0</code> eintragen.</li>
 			<li>Falls nötig, abrunden.</li>
+			<li>1-3 wiederholen bis nach der Abrundung nichts übrig ist.</li>
 		</ol>
-		<p>So bald man nur noch <code>0,5</code> übrig hat, ist man fertig. Hier die Rechnung:</p>
 		<table>
 			<tr>
 				<th>Schritt Nr.</th>
@@ -190,8 +225,11 @@
 				<td>Ja, also <code>1</code></td>
 			</tr>
 		</table>
+		<p>
+			Ergebnis: <code>110 1100 010<span class="red">0</span></code>
+		</p>
 		<p class="tip">
-			Bitte beachten: Die zuerst errechnete Binärzahl, hier in Rot, ist die Letzte aus allen Binärzahlen!
+			Führende Nullen können (bei Umrechnungen) ignoriert werden.
 		</p><br>
 
 		<h2>Dezimal zu Hexadezimal</h2>
