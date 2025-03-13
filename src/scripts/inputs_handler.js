@@ -1,9 +1,13 @@
+const HANDS_WIDTH = 451;
+const HANDS_HEIGHT = 485;
+
 let numberInput;
 let rangeInput;
 
 let inputValue = 0;
 
-let spritesheetImg, fingerRetractedImg, fingerExtendedImg;
+let spritesheetImg, fingersRetractedSpritesheet, fingersExtendedSpritesheet;
+let canvasCtx;
 
 /**
  * Get hand indexes on spritesheet.
@@ -51,7 +55,59 @@ function getOptionalFingersStatuses(binary) {
 	return { leftFingerStatus, rightFingerStatus };
 }
 
-function updateHandsCanvas() {
+function updateHandsCanvas(leftHandIndex, leftFingerStatus, rightFingerStatus, rightHandIndex) {
+
+	// Save current canvas state
+	canvasCtx.save();
+
+	// Scale canvas
+	canvasCtx.scale(-1, 1);
+
+	// Draw left hand
+	canvasCtx.drawImage(
+		spritesheetImg,                 // Source image
+		leftHandIndex * HANDS_WIDTH, 0, // Source X/Y
+		HANDS_WIDTH, HANDS_HEIGHT,      // Source width/height
+		-HANDS_WIDTH, 0,                // Destination X/Y
+		HANDS_WIDTH, HANDS_HEIGHT       // Destination width/height
+	);
+
+	// Draw left finger if required
+	if (leftFingerStatus !== -1) {
+		canvasCtx.drawImage(
+			leftFingerStatus === 0 ? fingersRetractedSpritesheet : fingersExtendedSpritesheet,
+			leftHandIndex * HANDS_WIDTH, 0, // Source X/Y
+			HANDS_WIDTH, HANDS_HEIGHT,      // Source width/height
+			-HANDS_WIDTH, 0,                // Destination X/Y
+			HANDS_WIDTH, HANDS_HEIGHT       // Destination width/height
+		);
+	}
+
+	// Restore canvas state before scaling
+	canvasCtx.restore();
+
+	// Draw right hand
+	canvasCtx.drawImage(
+		spritesheetImg,                  // Source image
+		rightHandIndex * HANDS_WIDTH, 0, // Source X/Y
+		HANDS_WIDTH, HANDS_HEIGHT,       // Source width/height
+		HANDS_WIDTH, 0,                  // Destination X/Y
+		HANDS_WIDTH, HANDS_HEIGHT        // Destination width/height
+	);
+
+	// Draw right finger if required
+	if (rightFingerStatus !== -1) {
+		canvasCtx.drawImage(
+			rightFingerStatus === 0 ? fingersRetractedSpritesheet : fingersExtendedSpritesheet,
+			rightHandIndex * HANDS_WIDTH, 0, // Source X/Y
+			HANDS_WIDTH, HANDS_HEIGHT,       // Source width/height
+			HANDS_WIDTH, 0,                  // Destination X/Y
+			HANDS_WIDTH, HANDS_HEIGHT        // Destination width/height
+		);
+	}
+}
+
+function prepareHandsCanvasUpdate() {
 
 	// Convert input to binary
 	const binary = inputValue.toString(2).padStart(12, "0");
@@ -61,6 +117,9 @@ function updateHandsCanvas() {
 
 	// Get optional finger on/off/hidden status
 	const { leftFingerStatus, rightFingerStatus } = getOptionalFingersStatuses(binary);
+
+	// Run the update
+	updateHandsCanvas(leftHandIndex, leftFingerStatus, rightFingerStatus, rightHandIndex);
 }
 
 function decInputHandler(event) {
@@ -85,33 +144,36 @@ function requestRequiredImages() {
 		spritesheetImg.onload = resolve;
 		spritesheetImg.onerror = reject;
 
-		spritesheetImg.src = "media/spritesheet.jpg";
+		spritesheetImg.src = "media/spritesheet.webp";
 	});
 
-	// Retracted finger
-	const retractedFingerPromise = new Promise((resolve, reject) => {
-		fingerRetractedImg = new Image(451, 485);
+	// Retracted fingers
+	const retractedFingersPromise = new Promise((resolve, reject) => {
+		fingersRetractedSpritesheet = new Image(14432, 485);
 
-		fingerRetractedImg.onload = resolve;
-		fingerRetractedImg.onerror = reject;
+		fingersRetractedSpritesheet.onload = resolve;
+		fingersRetractedSpritesheet.onerror = reject;
 
-		fingerRetractedImg.src = "media/0.png";
+		fingersRetractedSpritesheet.src = "media/spritesheet_retracted.webp";
 	});
 
-	// Extended finger
-	const extendedFingerPromise = new Promise((resolve, reject) => {
-		fingerExtendedImg = new Image(451, 485);
+	// Extended fingers
+	const extendedFingersPromise = new Promise((resolve, reject) => {
+		fingersExtendedSpritesheet = new Image(14432, 485);
 
-		fingerExtendedImg.onload = resolve;
-		fingerExtendedImg.onerror = reject;
+		fingersExtendedSpritesheet.onload = resolve;
+		fingersExtendedSpritesheet.onerror = reject;
 
-		fingerExtendedImg.src = "media/1.png";
+		fingersExtendedSpritesheet.src = "media/spritesheet_extended.webp";
 	});
 
-	return Promise.all([spritesheetPromise, retractedFingerPromise, extendedFingerPromise]);
+	return Promise.all([spritesheetPromise, retractedFingersPromise, extendedFingersPromise]);
 }
 
 export function setupIllustration() {
+
+	// Get canvas context
+	canvasCtx = document.getElementById("hands_canvas").getContext("2d");
 
 	// Request all images before setup
 	requestRequiredImages().then(() => {
@@ -129,7 +191,7 @@ export function setupIllustration() {
 		rangeInput.addEventListener("input", decInputHandler);
 
 		// Set canvas hands for first time
-		updateHandsCanvas();
+		prepareHandsCanvasUpdate();
 	}).catch((error) => {
 		console.error(error);
 		// TODO: Inform user
