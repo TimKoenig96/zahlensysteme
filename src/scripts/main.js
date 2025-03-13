@@ -1,7 +1,7 @@
-import { setupInputHandlers } from "./inputs_handler.js";
+import { setupIllustration } from "./inputs_handler.js";
 
 function main() {
-	setupInputHandlers();
+	setupIllustration();
 }
 
 main();

@@ -42,7 +42,7 @@ function decInputHandler(event) {
 	timeout = setTimeout(updateHandsCanvas, 250);
 }
 
-export function setupInputHandlers() {
+export function setupIllustration() {
 
 	// Get inputs
 	numberInput = document.getElementById("dec_number_input");
