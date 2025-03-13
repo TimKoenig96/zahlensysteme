@@ -2,7 +2,6 @@ let numberInput;
 let rangeInput;
 
 let inputValue = 0;
-let timeout;
 
 let spritesheetImg, fingerRetractedImg, fingerExtendedImg;
 
@@ -73,11 +72,8 @@ function decInputHandler(event) {
 	if (event.target.type === "number") rangeInput.value = inputValue;
 	else numberInput.value = inputValue;
 
-	// Clear timeout
-	clearTimeout(timeout);
-
-	// Set timeout
-	timeout = setTimeout(updateHandsCanvas, 250);
+	// Run update
+	prepareHandsCanvasUpdate();
 }
 
 function requestRequiredImages() {
