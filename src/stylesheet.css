@@ -1,6 +1,6 @@
 /* #region | Main elements */
 :root {
-	color-scheme: light;
+	color-scheme: dark;
 
 	/* Dimensions */
 	--spacing_s: .2rem;
@@ -17,6 +17,18 @@
 	--elev_2: hsl(240, 10%, 33%);
 }
 
+.light_theme {
+	color-scheme: light;
+
+	/* Colors */
+	--text_primary: #000;
+	--text_secondary: #555;
+	--text_red: #f33;
+	--elev_0: hsl(0, 0%, 100%);
+	--elev_1: hsl(0, 0%, 90%);
+	--elev_2: hsl(0, 0%, 70%);
+}
+
 body {
 	display: flex;
 	flex-direction: column;
@@ -29,7 +41,6 @@ body {
 
 	font-family: sans-serif;
 	color: var(--text_primary);
-	line-height: 1.4rem;
 
 	background-color: var(--elev_0);
 }
@@ -37,6 +48,16 @@ body {
 
 
 /* #region | Misc classes and elements */
+#theme_toggle {
+	position: absolute;
+	width: 2em;
+	height: 2em;
+	border-radius: 50%;
+	border: var(--border_thickness) solid var(--text_primary);
+	background: linear-gradient(to right, var(--text_primary) 50%, #0000 50%);
+	cursor: pointer;
+}
+
 .tip {
 	border-left: var(--border_thickness) solid var(--elev_2);
 	padding: var(--spacing_s) var(--spacing_s) var(--spacing_s) var(--border_thickness);
@@ -47,6 +68,8 @@ body {
 .tip::before { content: "💡"; }
 
 .red { color: var(--text_red); }
+
+p, li { line-height: 1.5rem; }
 
 code {
 	background-color: var(--elev_0);
@@ -108,12 +131,5 @@ th, td {
 .section h1 {
 	text-align: center;
 	margin: 0;
-}
-/* #endregion */
-
-
-/* #region | Media queries */
-@media screen and (prefers-color-scheme: dark) {
-	:root { color-scheme: dark; }
 }
 /* #endregion */
