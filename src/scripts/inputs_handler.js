@@ -57,21 +57,11 @@ function updateHandsCanvas() {
 	// Convert input to binary
 	const binary = inputValue.toString(2).padStart(12, "0");
 
-	// Extract required binary sections
-	let rightHandBinary, leftHandBinary, leftExtra, rightExtra;
+	// Get image indexes for hands
+	const { leftHandIndex, rightHandIndex } = getHandsSpritesheetIndexes(binary);
 
-	rightHandBinary = binary.slice(-5);
-
-	if (inputValue < 1024) {
-		leftHandBinary = binary.slice(2, 7);
-	} else if (inputValue < 2048) {
-		leftHandBinary = binary.slice(1, 6);
-		rightExtra = binary[6];
-	} else {
-		leftHandBinary = binary.slice(0, 5);
-		leftExtra = binary[5];
-		rightExtra = binary[6];
-	}
+	// Get optional finger on/off/hidden status
+	const { leftFingerStatus, rightFingerStatus } = getOptionalFingersStatuses(binary);
 }
 
 function decInputHandler(event) {
@@ -90,17 +80,62 @@ function decInputHandler(event) {
 	timeout = setTimeout(updateHandsCanvas, 250);
 }
 
+function requestRequiredImages() {
+
+	// Spritesheet
+	const spritesheetPromise = new Promise((resolve, reject) => {
+		spritesheetImg = new Image(14432, 485);
+
+		spritesheetImg.onload = resolve;
+		spritesheetImg.onerror = reject;
+
+		spritesheetImg.src = "media/spritesheet.jpg";
+	});
+
+	// Retracted finger
+	const retractedFingerPromise = new Promise((resolve, reject) => {
+		fingerRetractedImg = new Image(451, 485);
+
+		fingerRetractedImg.onload = resolve;
+		fingerRetractedImg.onerror = reject;
+
+		fingerRetractedImg.src = "media/0.png";
+	});
+
+	// Extended finger
+	const extendedFingerPromise = new Promise((resolve, reject) => {
+		fingerExtendedImg = new Image(451, 485);
+
+		fingerExtendedImg.onload = resolve;
+		fingerExtendedImg.onerror = reject;
+
+		fingerExtendedImg.src = "media/1.png";
+	});
+
+	return Promise.all([spritesheetPromise, retractedFingerPromise, extendedFingerPromise]);
+}
+
 export function setupIllustration() {
 
-	// Get inputs
-	numberInput = document.getElementById("dec_number_input");
-	rangeInput = document.getElementById("dec_range_input");
+	// Request all images before setup
+	requestRequiredImages().then(() => {
 
-	// Set both inputs to 0
-	numberInput.value = 0;
-	rangeInput.value = 0;
+		// Get inputs
+		numberInput = document.getElementById("dec_number_input");
+		rangeInput = document.getElementById("dec_range_input");
 
-	// Add event listeners
-	numberInput.addEventListener("input", decInputHandler);
-	rangeInput.addEventListener("input", decInputHandler);
+		// Set both inputs to 0
+		numberInput.value = 0;
+		rangeInput.value = 0;
+
+		// Add event listeners
+		numberInput.addEventListener("input", decInputHandler);
+		rangeInput.addEventListener("input", decInputHandler);
+
+		// Set canvas hands for first time
+		updateHandsCanvas();
+	}).catch((error) => {
+		console.error(error);
+		// TODO: Inform user
+	});
 }
