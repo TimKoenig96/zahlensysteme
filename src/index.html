@@ -1,416 +1,374 @@
 <!DOCTYPE html>
-<html lang="de" data-theme="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="stylesheet.css" />
-		<title>Zahlensysteme Dargestellt</title>
-	</head>
-	<body>
+<html lang="de">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<div id="container">
-			<p id="theme_switcher">Light theme nutzen?</p>
+	<meta name="author" content="Tim König">
+	<meta name="creator" content="Tim König">
+	<meta name="description" content="Erklärung und Darstellung verschiedener Zahlensysteme. Binär, Oktal, Dezimal und Hexadezimal.">
+	<meta name="keywords" content="tim,konig,koenig,könig,zahlensysteme">
 
-			<!-- Explanation -->
-			<div class="section">
-				<h1>Zahlensysteme erklärt</h1>
-				<hr />
-				<h3>Binär / Dualzahlen / Base-2</h3>
-				<p>
-					Binär, Dualzahlen und Base-2 sind dasselbe. In Binär kann jede Ziffer nur zwei
-					Werte enthalten: 0 oder 1. Das "Bi" von Binär kommt im Übrigen aus dem Lateinischen
-					und steht für zwei!<br /><br />
+	<title>Zahlensysteme Dargestellt</title>
 
-					Normale Computer, also keine experimentellen Quantum Computer, verarbeiten
-					und speichern Daten ausschließlich in Binär.
-				</p><br /><br /><br />
+	<link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
 
-				<h3>Oktal / Base-8</h3>
-				<p>
-					Das Oktalsystem besteht aus den Ziffern 0 bis 7 und wurde in der Vergangenheit
-					häufig verwendet, da es zur Darstellung von Binärzahlen geeignet ist und die
-					Umrechnung recht einfach ist.<br /><br />
-
-					Es hat allerdings an Bedeutung verloren, da das Base-16, also das Hexadezimalsystem,
-					eine einfachere Umrechnung bietet.
-				</p><br /><br /><br />
-
-				<h3>Dezimalzahlen / Base-10</h3>
-				<p>
-					Das Wort "Deci" kommt aus dem Lateinischen "Decimus", was ein zehntel bedeutet.
-					Ein Dezimeter ist ein zehtel von einem Meter: 10cm.<br /><br />
-
-					Dezimalzahlen bestehen aus zehn Ziffern: 0 bis 9 - Daher "Dezi".<br /><br />
-
-					Wir nutzen diese Zahlen im Alltag: Zählen, Mathematik, Kommastellen, Maße, und so weiter.
-				</p><br /><br /><br />
-
-				<h3>Hexadezimalzahlen / Base-16</h3>
-				<p>
-					Hexa (Lateinisch) und Hex (Griechisch) bedeuten sechs. Dies kann man eventuell besser
-					merken, wenn man an ein Hexagon denkt. Das "Dezi" ist hier ebenfalls
-					vertreten.<br />
-					Hexa + Dezi = 6 + 10 = 16.<br /><br />
-
-					Um auf die 16 zu kommen, nehmen wir zuerst die 0 bis 9 Dezimalzahlen. Am Ende fügen wir
-					lediglich A bis F hinzu, womit man bei 16 Zeichen angekommen ist. Warum genau 16 Zeichen
-					benötigt werden, erkläre ich in den Hexadezimalen Umrechnungen.<br /><br />
-
-					Hexadezimalzahlen werden hauptsächlich genutzt, um Binärzahlen lesbarer darzustellen.
-					Ein weiterer Anwendungsfall ist für die Anzeige von Speicheradressen, beispielsweise
-					im RAM. Dies ist besonders bei der "Low-Level"-Programmierung üblich.
-				</p>
-			</div>
-
-			<!-- Inputs, simple table and hands -->
-			<div class="section">
-				<h1>Veranschaulichung</h1>
-				<hr />
-
-				<!-- Inputs -->
-				<div id="sticky_inputs">
-					<div>
-						<h3>Input in Dezimal</h3>
-						<div id="illust_inputs">
-							<input type="number" id="decimal_input_number" min="0" max="4095" value="0" />
-							<input type="range" id="decimal_input_slider" min="0" max="4095" value="0" />
-							<input type="checkbox" id="simple_view" checked />
-							<label for="simple_view">Simple<br />Darstellung</label>
-						</div>
-					</div>
-				</div><br /><br /><br />
-
-				<!-- Simple table -->
-				<h3>Output als Tabelle</h3>
-				<div class="table_container">
-					<table id="simple_output_table">
-						<tr>
-							<th>Stellenwert</th>
-							<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">2048</span><span class="complicated_view show_simple">2<sup>11</sup></span></th>
-							<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">1024</span><span class="complicated_view show_simple">2<sup>10</sup></span></th>
-							<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">512</span><span class="complicated_view show_simple">2<sup>9</sup></span></th>
-							<th data-table_visibility="2" class="table_hidden"><span class="simple_view show_simple">256</span><span class="complicated_view show_simple">2<sup>8</sup></span></th>
-							<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">128</span><span class="complicated_view show_simple">2<sup>7</sup></span></th>
-							<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">64</span><span class="complicated_view show_simple">2<sup>6</sup></span></th>
-							<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">32</span><span class="complicated_view show_simple">2<sup>5</sup></span></th>
-							<th data-table_visibility="1" class="table_hidden"><span class="simple_view show_simple">16</span><span class="complicated_view show_simple">2<sup>4</sup></span></th>
-							<th><span class="simple_view show_simple">8</span><span class="complicated_view show_simple">2<sup>3</sup></span></th>
-							<th><span class="simple_view show_simple">4</span><span class="complicated_view show_simple">2<sup>2</sup></span></th>
-							<th><span class="simple_view show_simple">2</span><span class="complicated_view show_simple">2<sup>1</sup></span></th>
-							<th><span class="simple_view show_simple">1</span><span class="complicated_view show_simple">2<sup>0</sup></span></th>
-						</tr>
-						<tr>
-							<th>Binär / Dualzahl</th>
-							<td class="table_hidden" data-table_visibility="2">0</td>
-							<td class="table_hidden" data-table_visibility="2">0</td>
-							<td class="table_hidden" data-table_visibility="2">0</td>
-							<td class="table_hidden" data-table_visibility="2">0</td>
-							<td class="table_hidden" data-table_visibility="1">0</td>
-							<td class="table_hidden" data-table_visibility="1">0</td>
-							<td class="table_hidden" data-table_visibility="1">0</td>
-							<td class="table_hidden" data-table_visibility="1">0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-							<td>0</td>
-						</tr>
-						<tr>
-							<th>Hexadezimal</th>
-							<td class="table_hidden" data-table_visibility="2" colspan="4">0</td>
-							<td class="table_hidden" data-table_visibility="1" colspan="4">0</td>
-							<td colspan="4">0</td>
-						</tr>
-					</table>
-				</div><br /><br /><br />
-
-				<!-- Hands -->
-				<h3>Mit Händen dargestellt</h3>
-				<div id="output_hands">
-					<div id="output_hands_left">
-						<img id="left_0" src="media/0.jpg" />
-						<img class="hand_hidden hand_extra" id="left_0_0" src="media/0_0.png" />
-						<img class="hand_hidden hand_extra" id="left_0_1" src="media/0_1.png" />
-						<img class="hand_hidden" id="left_1" src="media/1.jpg" />
-						<img class="hand_hidden" id="left_10" src="media/10.jpg" />
-						<img class="hand_hidden hand_extra" id="left_10_0" src="media/10_0.png" />
-						<img class="hand_hidden hand_extra" id="left_10_1" src="media/10_1.png" />
-						<img class="hand_hidden" id="left_11" src="media/11.jpg" />
-						<img class="hand_hidden hand_extra" id="left_11_0" src="media/11_0.png" />
-						<img class="hand_hidden hand_extra" id="left_11_1" src="media/11_1.png" />
-						<img class="hand_hidden" id="left_12" src="media/12.jpg" />
-						<img class="hand_hidden hand_extra" id="left_12_0" src="media/12_0.png" />
-						<img class="hand_hidden hand_extra" id="left_12_1" src="media/12_1.png" />
-						<img class="hand_hidden" id="left_13" src="media/13.jpg" />
-						<img class="hand_hidden hand_extra" id="left_13_0" src="media/13_0.png" />
-						<img class="hand_hidden hand_extra" id="left_13_1" src="media/13_1.png" />
-						<img class="hand_hidden" id="left_14" src="media/14.jpg" />
-						<img class="hand_hidden hand_extra" id="left_14_0" src="media/14_0.png" />
-						<img class="hand_hidden hand_extra" id="left_14_1" src="media/14_1.png" />
-						<img class="hand_hidden" id="left_15" src="media/15.jpg" />
-						<img class="hand_hidden hand_extra" id="left_15_0" src="media/15_0.png" />
-						<img class="hand_hidden hand_extra" id="left_15_1" src="media/15_1.png" />
-						<img class="hand_hidden" id="left_16" src="media/16.jpg" />
-						<img class="hand_hidden hand_extra" id="left_16_0" src="media/16_0.png" />
-						<img class="hand_hidden hand_extra" id="left_16_1" src="media/16_1.png" />
-						<img class="hand_hidden" id="left_17" src="media/17.jpg" />
-						<img class="hand_hidden hand_extra" id="left_17_0" src="media/17_0.png" />
-						<img class="hand_hidden hand_extra" id="left_17_1" src="media/17_1.png" />
-						<img class="hand_hidden" id="left_18" src="media/18.jpg" />
-						<img class="hand_hidden hand_extra" id="left_18_0" src="media/18_0.png" />
-						<img class="hand_hidden hand_extra" id="left_18_1" src="media/18_1.png" />
-						<img class="hand_hidden" id="left_19" src="media/19.jpg" />
-						<img class="hand_hidden hand_extra" id="left_19_0" src="media/19_0.png" />
-						<img class="hand_hidden hand_extra" id="left_19_1" src="media/19_1.png" />
-						<img class="hand_hidden hand_extra" id="left_1_0" src="media/1_0.png" />
-						<img class="hand_hidden hand_extra" id="left_1_1" src="media/1_1.png" />
-						<img class="hand_hidden" id="left_2" src="media/2.jpg" />
-						<img class="hand_hidden" id="left_20" src="media/20.jpg" />
-						<img class="hand_hidden hand_extra" id="left_20_0" src="media/20_0.png" />
-						<img class="hand_hidden hand_extra" id="left_20_1" src="media/20_1.png" />
-						<img class="hand_hidden" id="left_21" src="media/21.jpg" />
-						<img class="hand_hidden hand_extra" id="left_21_0" src="media/21_0.png" />
-						<img class="hand_hidden hand_extra" id="left_21_1" src="media/21_1.png" />
-						<img class="hand_hidden" id="left_22" src="media/22.jpg" />
-						<img class="hand_hidden hand_extra" id="left_22_0" src="media/22_0.png" />
-						<img class="hand_hidden hand_extra" id="left_22_1" src="media/22_1.png" />
-						<img class="hand_hidden" id="left_23" src="media/23.jpg" />
-						<img class="hand_hidden hand_extra" id="left_23_0" src="media/23_0.png" />
-						<img class="hand_hidden hand_extra" id="left_23_1" src="media/23_1.png" />
-						<img class="hand_hidden" id="left_24" src="media/24.jpg" />
-						<img class="hand_hidden hand_extra" id="left_24_0" src="media/24_0.png" />
-						<img class="hand_hidden hand_extra" id="left_24_1" src="media/24_1.png" />
-						<img class="hand_hidden" id="left_25" src="media/25.jpg" />
-						<img class="hand_hidden hand_extra" id="left_25_0" src="media/25_0.png" />
-						<img class="hand_hidden hand_extra" id="left_25_1" src="media/25_1.png" />
-						<img class="hand_hidden" id="left_26" src="media/26.jpg" />
-						<img class="hand_hidden hand_extra" id="left_26_0" src="media/26_0.png" />
-						<img class="hand_hidden hand_extra" id="left_26_1" src="media/26_1.png" />
-						<img class="hand_hidden" id="left_27" src="media/27.jpg" />
-						<img class="hand_hidden hand_extra" id="left_27_0" src="media/27_0.png" />
-						<img class="hand_hidden hand_extra" id="left_27_1" src="media/27_1.png" />
-						<img class="hand_hidden" id="left_28" src="media/28.jpg" />
-						<img class="hand_hidden hand_extra" id="left_28_0" src="media/28_0.png" />
-						<img class="hand_hidden hand_extra" id="left_28_1" src="media/28_1.png" />
-						<img class="hand_hidden" id="left_29" src="media/29.jpg" />
-						<img class="hand_hidden hand_extra" id="left_29_0" src="media/29_0.png" />
-						<img class="hand_hidden hand_extra" id="left_29_1" src="media/29_1.png" />
-						<img class="hand_hidden hand_extra" id="left_2_0" src="media/2_0.png" />
-						<img class="hand_hidden hand_extra" id="left_2_1" src="media/2_1.png" />
-						<img class="hand_hidden" id="left_3" src="media/3.jpg" />
-						<img class="hand_hidden" id="left_30" src="media/30.jpg" />
-						<img class="hand_hidden hand_extra" id="left_30_0" src="media/30_0.png" />
-						<img class="hand_hidden hand_extra" id="left_30_1" src="media/30_1.png" />
-						<img class="hand_hidden" id="left_31" src="media/31.jpg" />
-						<img class="hand_hidden hand_extra" id="left_31_0" src="media/31_0.png" />
-						<img class="hand_hidden hand_extra" id="left_31_1" src="media/31_1.png" />
-						<img class="hand_hidden hand_extra" id="left_3_0" src="media/3_0.png" />
-						<img class="hand_hidden hand_extra" id="left_3_1" src="media/3_1.png" />
-						<img class="hand_hidden" id="left_4" src="media/4.jpg" />
-						<img class="hand_hidden hand_extra" id="left_4_0" src="media/4_0.png" />
-						<img class="hand_hidden hand_extra" id="left_4_1" src="media/4_1.png" />
-						<img class="hand_hidden" id="left_5" src="media/5.jpg" />
-						<img class="hand_hidden hand_extra" id="left_5_0" src="media/5_0.png" />
-						<img class="hand_hidden hand_extra" id="left_5_1" src="media/5_1.png" />
-						<img class="hand_hidden" id="left_6" src="media/6.jpg" />
-						<img class="hand_hidden hand_extra" id="left_6_0" src="media/6_0.png" />
-						<img class="hand_hidden hand_extra" id="left_6_1" src="media/6_1.png" />
-						<img class="hand_hidden" id="left_7" src="media/7.jpg" />
-						<img class="hand_hidden hand_extra" id="left_7_0" src="media/7_0.png" />
-						<img class="hand_hidden hand_extra" id="left_7_1" src="media/7_1.png" />
-						<img class="hand_hidden" id="left_8" src="media/8.jpg" />
-						<img class="hand_hidden hand_extra" id="left_8_0" src="media/8_0.png" />
-						<img class="hand_hidden hand_extra" id="left_8_1" src="media/8_1.png" />
-						<img class="hand_hidden" id="left_9" src="media/9.jpg" />
-						<img class="hand_hidden hand_extra" id="left_9_0" src="media/9_0.png" />
-						<img class="hand_hidden hand_extra" id="left_9_1" src="media/9_1.png" />
-					</div>
-					<div id="output_hands_right">
-						<img id="right_0" src="media/0.jpg" />
-						<img class="hand_hidden hand_extra" id="right_0_0" src="media/0_0.png" />
-						<img class="hand_hidden hand_extra" id="right_0_1" src="media/0_1.png" />
-						<img class="hand_hidden" id="right_1" src="media/1.jpg" />
-						<img class="hand_hidden" id="right_10" src="media/10.jpg" />
-						<img class="hand_hidden hand_extra" id="right_10_0" src="media/10_0.png" />
-						<img class="hand_hidden hand_extra" id="right_10_1" src="media/10_1.png" />
-						<img class="hand_hidden" id="right_11" src="media/11.jpg" />
-						<img class="hand_hidden hand_extra" id="right_11_0" src="media/11_0.png" />
-						<img class="hand_hidden hand_extra" id="right_11_1" src="media/11_1.png" />
-						<img class="hand_hidden" id="right_12" src="media/12.jpg" />
-						<img class="hand_hidden hand_extra" id="right_12_0" src="media/12_0.png" />
-						<img class="hand_hidden hand_extra" id="right_12_1" src="media/12_1.png" />
-						<img class="hand_hidden" id="right_13" src="media/13.jpg" />
-						<img class="hand_hidden hand_extra" id="right_13_0" src="media/13_0.png" />
-						<img class="hand_hidden hand_extra" id="right_13_1" src="media/13_1.png" />
-						<img class="hand_hidden" id="right_14" src="media/14.jpg" />
-						<img class="hand_hidden hand_extra" id="right_14_0" src="media/14_0.png" />
-						<img class="hand_hidden hand_extra" id="right_14_1" src="media/14_1.png" />
-						<img class="hand_hidden" id="right_15" src="media/15.jpg" />
-						<img class="hand_hidden hand_extra" id="right_15_0" src="media/15_0.png" />
-						<img class="hand_hidden hand_extra" id="right_15_1" src="media/15_1.png" />
-						<img class="hand_hidden" id="right_16" src="media/16.jpg" />
-						<img class="hand_hidden hand_extra" id="right_16_0" src="media/16_0.png" />
-						<img class="hand_hidden hand_extra" id="right_16_1" src="media/16_1.png" />
-						<img class="hand_hidden" id="right_17" src="media/17.jpg" />
-						<img class="hand_hidden hand_extra" id="right_17_0" src="media/17_0.png" />
-						<img class="hand_hidden hand_extra" id="right_17_1" src="media/17_1.png" />
-						<img class="hand_hidden" id="right_18" src="media/18.jpg" />
-						<img class="hand_hidden hand_extra" id="right_18_0" src="media/18_0.png" />
-						<img class="hand_hidden hand_extra" id="right_18_1" src="media/18_1.png" />
-						<img class="hand_hidden" id="right_19" src="media/19.jpg" />
-						<img class="hand_hidden hand_extra" id="right_19_0" src="media/19_0.png" />
-						<img class="hand_hidden hand_extra" id="right_19_1" src="media/19_1.png" />
-						<img class="hand_hidden hand_extra" id="right_1_0" src="media/1_0.png" />
-						<img class="hand_hidden hand_extra" id="right_1_1" src="media/1_1.png" />
-						<img class="hand_hidden" id="right_2" src="media/2.jpg" />
-						<img class="hand_hidden" id="right_20" src="media/20.jpg" />
-						<img class="hand_hidden hand_extra" id="right_20_0" src="media/20_0.png" />
-						<img class="hand_hidden hand_extra" id="right_20_1" src="media/20_1.png" />
-						<img class="hand_hidden" id="right_21" src="media/21.jpg" />
-						<img class="hand_hidden hand_extra" id="right_21_0" src="media/21_0.png" />
-						<img class="hand_hidden hand_extra" id="right_21_1" src="media/21_1.png" />
-						<img class="hand_hidden" id="right_22" src="media/22.jpg" />
-						<img class="hand_hidden hand_extra" id="right_22_0" src="media/22_0.png" />
-						<img class="hand_hidden hand_extra" id="right_22_1" src="media/22_1.png" />
-						<img class="hand_hidden" id="right_23" src="media/23.jpg" />
-						<img class="hand_hidden hand_extra" id="right_23_0" src="media/23_0.png" />
-						<img class="hand_hidden hand_extra" id="right_23_1" src="media/23_1.png" />
-						<img class="hand_hidden" id="right_24" src="media/24.jpg" />
-						<img class="hand_hidden hand_extra" id="right_24_0" src="media/24_0.png" />
-						<img class="hand_hidden hand_extra" id="right_24_1" src="media/24_1.png" />
-						<img class="hand_hidden" id="right_25" src="media/25.jpg" />
-						<img class="hand_hidden hand_extra" id="right_25_0" src="media/25_0.png" />
-						<img class="hand_hidden hand_extra" id="right_25_1" src="media/25_1.png" />
-						<img class="hand_hidden" id="right_26" src="media/26.jpg" />
-						<img class="hand_hidden hand_extra" id="right_26_0" src="media/26_0.png" />
-						<img class="hand_hidden hand_extra" id="right_26_1" src="media/26_1.png" />
-						<img class="hand_hidden" id="right_27" src="media/27.jpg" />
-						<img class="hand_hidden hand_extra" id="right_27_0" src="media/27_0.png" />
-						<img class="hand_hidden hand_extra" id="right_27_1" src="media/27_1.png" />
-						<img class="hand_hidden" id="right_28" src="media/28.jpg" />
-						<img class="hand_hidden hand_extra" id="right_28_0" src="media/28_0.png" />
-						<img class="hand_hidden hand_extra" id="right_28_1" src="media/28_1.png" />
-						<img class="hand_hidden" id="right_29" src="media/29.jpg" />
-						<img class="hand_hidden hand_extra" id="right_29_0" src="media/29_0.png" />
-						<img class="hand_hidden hand_extra" id="right_29_1" src="media/29_1.png" />
-						<img class="hand_hidden hand_extra" id="right_2_0" src="media/2_0.png" />
-						<img class="hand_hidden hand_extra" id="right_2_1" src="media/2_1.png" />
-						<img class="hand_hidden" id="right_3" src="media/3.jpg" />
-						<img class="hand_hidden" id="right_30" src="media/30.jpg" />
-						<img class="hand_hidden hand_extra" id="right_30_0" src="media/30_0.png" />
-						<img class="hand_hidden hand_extra" id="right_30_1" src="media/30_1.png" />
-						<img class="hand_hidden" id="right_31" src="media/31.jpg" />
-						<img class="hand_hidden hand_extra" id="right_31_0" src="media/31_0.png" />
-						<img class="hand_hidden hand_extra" id="right_31_1" src="media/31_1.png" />
-						<img class="hand_hidden hand_extra" id="right_3_0" src="media/3_0.png" />
-						<img class="hand_hidden hand_extra" id="right_3_1" src="media/3_1.png" />
-						<img class="hand_hidden" id="right_4" src="media/4.jpg" />
-						<img class="hand_hidden hand_extra" id="right_4_0" src="media/4_0.png" />
-						<img class="hand_hidden hand_extra" id="right_4_1" src="media/4_1.png" />
-						<img class="hand_hidden" id="right_5" src="media/5.jpg" />
-						<img class="hand_hidden hand_extra" id="right_5_0" src="media/5_0.png" />
-						<img class="hand_hidden hand_extra" id="right_5_1" src="media/5_1.png" />
-						<img class="hand_hidden" id="right_6" src="media/6.jpg" />
-						<img class="hand_hidden hand_extra" id="right_6_0" src="media/6_0.png" />
-						<img class="hand_hidden hand_extra" id="right_6_1" src="media/6_1.png" />
-						<img class="hand_hidden" id="right_7" src="media/7.jpg" />
-						<img class="hand_hidden hand_extra" id="right_7_0" src="media/7_0.png" />
-						<img class="hand_hidden hand_extra" id="right_7_1" src="media/7_1.png" />
-						<img class="hand_hidden" id="right_8" src="media/8.jpg" />
-						<img class="hand_hidden hand_extra" id="right_8_0" src="media/8_0.png" />
-						<img class="hand_hidden hand_extra" id="right_8_1" src="media/8_1.png" />
-						<img class="hand_hidden" id="right_9" src="media/9.jpg" />
-						<img class="hand_hidden hand_extra" id="right_9_0" src="media/9_0.png" />
-						<img class="hand_hidden hand_extra" id="right_9_1" src="media/9_1.png" />
-					</div>
-				</div>
-			</div>
-
-			<!-- Calculations -->
-			<div class="section">
-				<h1>Rechnungen</h1>
-				<hr />
-	
-				<!-- Decimal to binary -->
-				<h3>Dezimal in Binär</h3>
-				<div class="table_container">
-					<table id="to_binary_table">
-						<tr>
-							<th>Dezimal</th>
-							<th rowspan="5">&#247;2</th>
-							<th>Abgerundet</th>
-							<th>Rest?</th>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr>
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr class="table_hidden" data-table_visibility="1">
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr class="table_hidden" data-table_visibility="1">
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr class="table_hidden" data-table_visibility="1">
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr class="table_hidden" data-table_visibility="1">
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr class="table_hidden" data-table_visibility="2">
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr class="table_hidden" data-table_visibility="2">
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr class="table_hidden" data-table_visibility="2">
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-						<tr class="table_hidden" data-table_visibility="2">
-							<td>0</td>
-							<td>0</td>
-							<td>Nein (0)</td>
-						</tr>
-					</table>
-				</div>
-				<p>
-					Erklärung: Man teilt die Dezimalzahl durch 2 und rundet diese ab. Wenn das
-					Ergebnis eine Kommastelle gehabt hätte, hier als "Rest?" gekennzeichnet,
-					dann ist die Binärzahl an dieser Stelle eine 1. Wenn die Zahl keine Kommastelle hat,
-					ist die Binärzahl eine 0. Das wiederholt man so lange, bis die Dezimalzahl eine 0 ist.<br /><br />
-
-					Die Reste kann man nun in eine Reihe schreiben indem man von unten anfängt: <span id="binary_result">0000</span>
-				</p>
-			</div>
+	<!-- Number systems explained -->
+	<div class="section">
+		<div>
+			<div id="theme_toggle"></div>
+			<h1>Zahlensysteme erklärt</h1>
 		</div>
-	</body>
+		<hr>
+
+		<h2>Binär</h2>
+		<p>
+			Eine binäre Zahl, auch <b>Dualzahl</b> oder <b>Basis-2</b> genannt, kann zwei Werte haben:
+			<code>0</code> und <code>1</code>.
+		</p>
+		<p>
+			Normale computer speichern <b>alle Daten und Dateien</b> in Binär, weil sie mit elektischen
+			Zuständen (An/Aus) arbeiten.
+		</p>
+		<p>
+			Alle weiteren Zahlensysteme werden nur zur darstellung genutzt, um uns Menschen das Auslesen
+			der Daten zu vereinfachen.
+		</p>
+
+		<h2>Oktal</h2>
+		<p>
+			Das Oktale Zahlensystem, auch <b>Basis-8</b> genannt, wird fast gar nicht mehr verwendet.
+			Es kann insgesamt 8 Werte haben, von <code>0</code> bis <code>7</code>.
+		</p>
+
+		<h2>Dezimal</h2>
+		<p>
+			Wir nutzen das dezimale Zahlensystem, auch <b>Basis-10</b> genannt, jeden Tag:
+			Wenn wir zählen, Mathe machen oder etwas messen. Es besteht aus zehn Ziffern: <code>0</code> bis
+			<code>9</code>.
+		</p>
+
+		<h2>Hexadezimal</h2>
+		<p>
+			Eines der für Computer am häufigsten genutzten Zahlensysteme. Es besteht aus 16 Ziffern:
+			<code>0</code> bis <code>9</code> und <code>A</code> bis <code>F</code>.
+		</p>
+		<p>
+			Da jedes Zeichen 16 Werte haben kann, lassen sich größere Zahlen kompakter schreiben.
+		</p>
+		<p class="tip">
+			Hexa (6) + Dezimal (10) = Hexadezimal (16)
+		</p>
+	</div>
+
+	<!-- Calculations -->
+	<div class="section">
+		<h1>Umrechnung</h1>
+		<hr>
+
+		<p class="tip">
+			Die letzte Ziffer markiere ich immer in Rot, damit man genau weiß, wo der Anfang und wo das Ende ist.
+		</p>
+
+		<h2>Binär zu Dezimal</h2>
+		<p>
+			Eine Binärzahl könnte so aussehen: <code>0110 1100 010<span class="red">0</span></code>
+		</p>
+		<p>
+			Jede <b>Ziffer</b> (<code>0</code> oder <code>1</code>) in einer Binärzahl hat einen
+			Bestimmten <b>Stellenwert.</b>
+		</p>
+		<p>
+			Der Wert hängt von der Position der Ziffer ab. Die letzte, also <b>rechteste Ziffer</b>,
+			hat den Stellenwert 1. Dieser Stellenwert <b>verdoppelt</b> sich bei jeder vorherigen Ziffer.
+		</p>
+		<p>
+			Hier eine Tabelle zur Erläuterung:
+		</p>
+		<table>
+			<tr>
+				<th>Ziffer in Binär</th>
+				<td><code>0</code></td>
+				<td><code>1</code></td>
+				<td><code>1</code></td>
+				<td><code>0</code></td>
+				<td><code>1</code></td>
+				<td><code>1</code></td>
+				<td><code>0</code></td>
+				<td><code>0</code></td>
+				<td><code>0</code></td>
+				<td><code>1</code></td>
+				<td><code>0</code></td>
+				<td><code><span class="red">0</span></code></td>
+			</tr>
+			<tr>
+				<th>Stelle von Hinten</th>
+				<td>12</td>
+				<td>11</td>
+				<td>10</td>
+				<td>9</td>
+				<td>8</td>
+				<td>7</td>
+				<td>6</td>
+				<td>5</td>
+				<td>4</td>
+				<td>3</td>
+				<td>2</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<th>Stellenwert</th>
+				<td>2048</td>
+				<td>1024</td>
+				<td>512</td>
+				<td>256</td>
+				<td>128</td>
+				<td>64</td>
+				<td>32</td>
+				<td>16</td>
+				<td>8</td>
+				<td>4</td>
+				<td>2</td>
+				<td>1</td>
+			</tr>
+			<tr>
+				<th>Resultat</th>
+				<td>0</td>
+				<td>1024</td>
+				<td>512</td>
+				<td>0</td>
+				<td>128</td>
+				<td>64</td>
+				<td>0</td>
+				<td>0</td>
+				<td>0</td>
+				<td>4</td>
+				<td>0</td>
+				<td>0</td>
+			</tr>
+		</table>
+		<p>
+			Jetzt nur noch alle Resultate summieren, und man erhält <code>1732</code>.
+		</p>
+		<p>
+			Formel: <code>(Ziffer * Stelle von Hinten ^ 2) + (Ziffer * Stelle von Hinten ^ 2) + ...</code><br>
+			Das dann für alle Binären Ziffern machen, und das Ergebnis sollte mit meinem übereinstimmen.
+		</p><br>
+
+		<h2>Dezimal zu Binär</h2>
+		<p>Es gibt mehrere Methoden Dezimalzahlen in Binär umzuwandeln. Hier ist meine bevorzugte Variante:</p>
+		<ol>
+			<li>Dezimalzahl durch 2 teilen.</li>
+			<li>Wenn <code>0,5</code> übrig sind: <code>1</code> eintragen, sonst <code>0</code> eintragen.</li>
+			<li>Falls nötig, abrunden.</li>
+			<li>1-3 wiederholen bis nach der Abrundung nichts übrig ist.</li>
+		</ol>
+		<table>
+			<tr>
+				<th>Schritt Nr.</th>
+				<th>Rechnung</th>
+				<th>Hatte Rest?</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td><code>1732 / 2 = 866</code></td>
+				<td>Nein, also <code class="red">0</code></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td><code>866 / 2 = 433</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td><code>433 / 2 = 216,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td><code>216 / 2 = 108</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td><code>108 / 2 = 54</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td><code>54 / 2 = 27</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td><code>27 / 2 = 13,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td><code>13 / 2 = 6,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td><code>6 / 2 = 3</code></td>
+				<td>Nein, also <code>0</code></td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td><code>3 / 2 = 1,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+			<tr>
+				<td>11</td>
+				<td><code>1 / 2 = 0,5</code></td>
+				<td>Ja, also <code>1</code></td>
+			</tr>
+		</table>
+		<p>
+			Ergebnis: <code>110 1100 010<span class="red">0</span></code>
+		</p>
+		<p class="tip">
+			Führende Nullen können (bei Umrechnungen) ignoriert werden.
+		</p><br>
+
+		<h2>Dezimal zu Hexadezimal</h2>
+		<p>Zuerst ein kleiner Spickzettel:</p>
+		<table>
+			<tr>
+				<th>Stellenwert</th>
+				<td>0</td>
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+				<td>9</td>
+				<td>10</td>
+				<td>11</td>
+				<td>12</td>
+				<td>13</td>
+				<td>14</td>
+				<td>15</td>
+			</tr>
+			<tr>
+				<th>Hexadezimal</th>
+				<td><code>0</code></td>
+				<td><code>1</code></td>
+				<td><code>2</code></td>
+				<td><code>3</code></td>
+				<td><code>4</code></td>
+				<td><code>5</code></td>
+				<td><code>6</code></td>
+				<td><code>7</code></td>
+				<td><code>8</code></td>
+				<td><code>9</code></td>
+				<td><code>A</code></td>
+				<td><code>B</code></td>
+				<td><code>C</code></td>
+				<td><code>D</code></td>
+				<td><code>E</code></td>
+				<td><code>F</code></td>
+			</tr>
+		</table>
+		<p>Jetzt die Rechnung:</p>
+		<ol>
+			<li>Dezimalzahl durch 16 teilen.</li>
+			<li>Das abgerundete Ergebnis für später merken.</li>
+			<li>Dezimalzahl Modulo 16 ist die Hexadezimalzahl.</li>
+			<li>Das abgerundete Ergebnis wieder für Schritt 1 nutzen.</li>
+		</ol>
+		<p class="tip">
+			Modulo gibt den Rest an, der nach einer Teilung übrig ist.<br>
+			<code>1732 / 16 = 108,25</code> | 108 ganze<br>
+			<code>1732 - (16 * 108) = 4</code> | Das ist eine Modulo-Rechnung<br>
+			<code>1732 Mod 16 = 4</code> | Alternative Darstellung
+		</p>
+		<table>
+			<tr>
+				<th>Schritt Nr.</th>
+				<th>Rechnung (Ganze)</th>
+				<th>Rechnung (Modulo)</th>
+				<th>Hexadezimal</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td><code>1732 / 16 = 108,25</code></td>
+				<td><code>1732 Mod 16 = 4</code></td>
+				<td><code class="red">4</code></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td><code>108 / 16 = 6,75</code></td>
+				<td><code>108 Mod 16 = 12</code></td>
+				<td><code>C</code></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td><code>6 / 16 = 0,375</code></td>
+				<td><code>6 Mod 16 = 6</code></td>
+				<td><code>6</code></td>
+			</tr>
+		</table>
+		<p>
+			Das Ergebnis ist somit <code>6C<span class="red">4</span></code>
+		</p><br>
+
+		<h2>Hexadezimal zu Dezimal</h2>
+		<p>
+			Um Hexadezimal in Dezimal umzurechnen, muss man die folgenden Schritte für jedes hexadezimale Zeichen,
+			mit dem letzten angefangen, durchführen:
+		</p>
+		<ol>
+			<li>Hexadezimal in den Stellenwert umrechnen.</li>
+			<li>Rechnen: <code>Stellenwert * 16<sup>Index</sup></code></li>
+			<li><code>Index</code> um 1 erhöhen und wieder bei Schritt 1 anfangen.</li>
+		</ol>
+		<table>
+			<tr>
+				<th>Schritt Nr.</th>
+				<th>Hex-Code &gt; Stellenwert</th>
+				<th>Rechnung</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td><code class="red">4</code> &gt; <code>4</code></td>
+				<td><code>4 * 16<sup>0</sup> = 4</code></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td><code>C</code> &gt; <code>12</code></td>
+				<td><code>12 * 16<sup>1</sup> = 192</code></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td><code>6</code> &gt; <code>6</code></td>
+				<td><code>6 * 16<sup>2</sup> = 1536</code></td>
+			</tr>
+		</table>
+		<p>
+			Der letzte Schritt ist alle Ergebnisse zu summieren: <code>4 + 192 + 1536 = 1732</code>.
+		</p>
+	</div>
+
+	<!-- Illustration -->
+	<div class="section">
+		<h1>Veranschaulichung</h1>
+		<hr>
+
+		<h2>Input als Dezimal</h2>
+		<div class="dec_inputs">
+			<input type="number" id="dec_number_input" step="1" min="0" max="4095" value="0">
+			<input type="range" id="dec_range_input" step="1" min="0" max="4095" value="0">
+		</div><br>
+
+		<h2>Binär mit Händen zählen</h2>
+		<canvas id="hands_canvas" width="902" height="485"></canvas>
+	</div>
+</body>
 </html>
