@@ -18,13 +18,13 @@ function getHandsSpritesheetIndexes(binary) {
 	let rightHandIndex = parseInt(binary.slice(-5), 2);
 
 	// No extra fingers required: Left hand indexes 2 to 7
-	if (inputValue < 1024) leftHandIndex = parseInt(binary.slice(2, 7));
+	if (inputValue < 1024) leftHandIndex = parseInt(binary.slice(2, 7).split("").reverse().join(""), 2);
 
 	// One extra finger required: Left hand indexes 1 to 6
-	else if (inputValue < 2048) leftHandIndex = parseInt(binary.slice(1, 6));
+	else if (inputValue < 2048) leftHandIndex = parseInt(binary.slice(1, 6), 2);
 
 	// Both extra fingers required: Left hand indexes 0 to 5
-	else leftHandIndex = parseInt(binary.slice(0, 5));
+	else leftHandIndex = parseInt(binary.slice(0, 5), 2);
 
 	return { leftHandIndex, rightHandIndex };
 }
